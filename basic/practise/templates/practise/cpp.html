@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPP  QUIZ</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+
+  .primary-btn
+    {
+        font-family: 'roboto';
+
+        color: white;
+        background-color: transparent;
+        padding: 12px 8px;
+        height: 20px;
+        display: block;
+        border: 1px solid white;
+        font-weight: 300px;
+        height: 40px;
+        width: 70%;
+        margin: auto;
+        border-radius: 12px;
+        transition: all 0.5s;
+    }
+    .primary-btn:hover
+    {
+        opacity: 0.7;
+
+    }
+.container{
+  display: block;
+  position: relative;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+  color:white;
+  font-weight:bolder;
+}
+body, html{
+  background: black;
+	font-family: 'Lato', sans-serif;
+	color:white;
+}
+label
+{
+  padding:6px;
+}
+.question
+{
+  border:2px solid white;
+  margin-bottom:12px;
+  background-color:white;
+  color:black;
+  border-radius:12px;
+
+}
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <h2>C PLUS PLUS QUIZ</h2>
+<form method="post">
+  {% csrf_token %}
+    <div class="question">
+        <p><strong>Q1</strong>What is the 16-bit compiler allowable range for integer constants?</p>
+
+
+        <div class="radio">
+        <label>
+            <input type="radio" name="1" value="a">-3.4e38 to 3.4e38</label>
+            <div class="check"></div>
+        </div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="" value="b">-32767 to 32768</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="1" value="c">-32668 to 32667</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="1" value="d">-32768 to 32767</label></div>
+    </div>
+    <div class="question">
+        <p><strong>Q2</strong><code>main()<br>
+{printf("javatpoint");  <br>
+main();} <br>What will be the output of this program? </code></p>
+        <div class="radio">
+        <label>
+            <input type="radio" name="2" value="a">Wrong statement</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="2" value="b">It will keep on printing javatpoint</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="2" value="c">It will Print javatpoint once</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="2" value="d">N1 of the these</label></div>
+    </div>
+    <div class="question">
+        <p><strong>Q3</strong>What is required in each C program?</p>
+        <div class="radio">
+        <label>
+            <input type="radio" name="3" value="a">The program must have at least 3 function</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="3" value="b">The program does not require any function</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="3" value="c">Input data</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="3" value="d">Output data</label></div>
+    </div>
+
+  <div class="question">
+        <p><strong>Q4</strong>Which of the following comment is correct when a macro definition includes arguments?</p>
+        <div class="radio">
+        <label>
+            <input type="radio" name="4" value="a">The opening parenthesis should immediately follow the macro name.</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="4" value="b">There should be at least one blank between the macro name and the opening parenthesis.</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="4" value="c">There should be only one blank between the macro name and the opening parenthesis.</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="4" value="d">All the above comments are correct.</label></div>
+    </div>
+  <div class="question">
+        <p><strong>Q5</strong> What is a lint?</p>
+        <div class="radio">
+        <label>
+            <input type="radio" name="5" value="a">C compiler</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="5" value="b">Interactive debugger</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="5" value="c">Analyzing tool</label></div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="5" value="d">C interpreter</label></div>
+    </div>
+   <input class="primary-btn" type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

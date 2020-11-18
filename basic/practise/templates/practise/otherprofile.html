@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% load friendshiptags %}
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>PROFILE</title>
+     <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'practise/style.css' %}">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+
+  <link href ="{% static 'img/favicon.png' %}"   rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}"  rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}"  rel="stylesheet">
+  <link href="{% static 'lib/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}"  rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        body
+    {
+    background-color: rgba(0,0,0);
+    }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        li {
+          float: left;
+        }
+
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+
+        .active {
+          background-color: red;
+        }
+        .aaa
+        {
+            width: 70%;
+            height: 50px;
+            background-color: transparent;
+            color: #fdffd4;
+            border: 2px solid transparent;
+            border: 2px solid #fdffd4;
+            border-right: 2px solid #fdffd4;
+            font-size: 15px;
+            line-height: 29px;
+            font-weight: 500px;
+            text-align: center;
+
+        }
+        .aaa:focus
+        {
+            outline: none;
+        }
+        .aaa::placeholder
+        {
+            color: white;
+        }
+        .primary-btn
+        {
+            font-family: 'roboto';
+
+            color: white;
+            background-color: transparent;
+            padding: 12px 8px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid white;
+            font-weight: 300px;
+            height: 40px;
+            width: 40px;
+            margin-top: 3px;
+            border-radius: 50%;
+            transition: all 0.5s;
+        }
+        .primary-btn:hover
+        {
+            opacity: 0.7;
+
+
+
+</style>
+</head>
+<body>
+<div class="con" id="con">
+<ul>
+            <li><a href="{{ '/practise/home' }}">HOME</a></li>
+          <li><a href="{{ '/practise/cquiz' }}">C QUIZ</a></li>
+    <li><a href="{% url 'sendfr' o.pk %}">SEND FRIEND REQUEST</a></li>
+    <li><form id="f" action="{% url 'search' %}" method="GET">
+        {% csrf_token %}
+                        <div style="display: inline">
+
+                        <input  class="aaa"type="text" name="search1" placeholder="SEARCH">
+                        </div>
+                        <div style="display: inline">
+                        <button type="submit" class="primary-btn" > <i class="fa fa-search" aria-hidden="true"></i>
+</button>
+                        </div>
+                    </form></li>
+
+          <li style="float:right; background-color:red;"><a class="active" href="{{ '/practise/logout' }}">LOGOUT</a></li>
+        </ul>
+
+
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+            {% if o.userdetails.propic %}
+         <p class="w3-center"><img src={{o.userdetails.propic.url}} class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+        {% endif %} <hr>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{ o.userdetails.address }}</p>
+         <p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i> {{ o.userdetails.phone }}</p>
+        </div>
+      </div>
+      <br>
+
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button  class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-linkedin fa-fw w3-margin-right"></i> {{ o.userwebsite.li }}</button>
+
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-instagram fa-fw w3-margin-right"></i> {{ o.userwebsite.instagram }}</button>
+
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-github fa-fw w3-margin-right"></i> {{ o.userwebsite.github }}</button>
+
+        </div>
+      </div>
+      <br>
+
+      <!-- Interests -->
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+
+            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <span class="w3-tag w3-small w3-theme-d2">Games</span>
+            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
+        </div>
+      </div>
+      <br>
+
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>People are looking at your profile. Find out who.</p>
+      </div>
+
+    <!-- End Left Column -->
+    </div>
+
+        <!-- Middle Column -->
+    <div class="w3-col m7">
+        {% if o.blog_set.all %}
+        {% for i in  o.blog_set.all %}
+            <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+          {% if o.userdetails.propic %}
+        <img src={{ o.userdetails.propic.url }} alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px; height:60px;">
+          {% endif %}
+        <span class="w3-right w3-opacity"></span>
+        <h4>{{ o.username}}</h4><br>
+        <hr class="w3-clear">
+        <p>{{ i.post }} </p>
+          {% if i.postpic %}
+
+          <div class="w3-row-padding" style="margin:0 -16px">
+
+            <div class="w3-half">
+              <img src={{ i.postpic.url }} style="width:100%" alt="This is the one" class="w3-margin-bottom">
+            </div>
+
+
+        </div>
+{% endif %}
+      </div>
+        {% endfor %}
+
+        {% else %}
+<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+
+        <h4>NO POST YET</h4><br>
+        <hr class="w3-clear">
+
+      </div>
+{% endif %}
+
+
+    <!-- End Middle Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-col m2">
+        <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button  class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-university fa-fw w3-margin-right"></i> {{ o.useredu.gradName }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i> {{ o.useredu.Graduationmarks }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-university fa-fw w3-margin-right"></i> {{ o.useredu.twelveName }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i> {{ o.useredu.Twelvwmarks  }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-university fa-fw w3-margin-right"></i> {{ o.useredu.TenName }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i> {{ o.useredu.tenthmarks }}</button>
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="w3-white">
+          <button  class="w3-button w3-block w3-theme-l1 w3-left-align"><img src="https://icongr.am/devicon/c-original.svg?size=24&color=ffffff"> {{ o.userskill.C  }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><img src="https://icongr.am/devicon/cplusplus-original.svg?size=24&color=ffffff">{{ o.userskill.Cpp  }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><img src="https://icongr.am/devicon/python-original.svg?size=24&color=ffffff"> {{ o.userskill.python  }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><img src="https://icongr.am/devicon/java-original.svg?size=24&color=ffffff">{{ o.userskill.java  }}</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><img src="https://icongr.am/devicon/html5-original.svg?size=24&color=ffffff"> {{ o.userskill.webdev  }}</button>
+
+        </div>
+      </div>
+
+      <br>
+
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Friend Request</p>
+            {% if o.user.propic %}
+          <img src="{{o.user.propic.url}}" alt="Avatar" style="width:50%"><br>
+            {% endif %}
+          <span>{{ o.user.username }}</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+
+    <!-- End Right Column -->
+    </div>
+
+  <!-- End Grid -->
+  </div>
+
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+
+
+<footer  style="text-align:center;" class="w3-container w3-theme-d5">
+  <p>Copyright &copy; 2020, Made by RAJ ARYAN PATHAK</p>
+                        <div class="lin">
+                            <a href="#">Terms of use</a> |
+                            <a href="#">Privacy Policy</a>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+</footer>
+
+</div>
+
+<div class="hid" id="hid">
+<div class="login-box">
+  <h2>UPDATE DETAILS</h2>
+  <form method="POST" enctype="multipart/form-data" action="">
+      {% csrf_token %}
+      {% for field in form1 %}
+    <div class="user-box">
+      {{ field }}
+      <label>{{ field.label_tag }}</label>
+    </div>
+      {% endfor %}
+    <input  type="submit" name="Update Information">
+
+  </form>
+</div>
+
+    </div>
+
+
+<div class="hid" id="hid1">
+<div class="login-box">
+  <h2>UPDATE DETAILS</h2>
+  <form method="POST"  action="">
+      {% csrf_token %}
+      {% for field in form2 %}
+    <div class="user-box">
+      {{ field }}
+      <label>{{ field.label_tag }}</label>
+    </div>
+      {% endfor %}
+    <input  type="submit" name="Update WEBSITE">
+
+  </form>
+</div>
+
+    </div>
+
+
+<div class="hid" id="hid2">
+<div class="login-box">
+  <h2>UPDATE DETAILS</h2>
+  <form method="POST"  action="">
+      {% csrf_token %}
+      {% for field in form3 %}
+    <div class="user-box">
+      {{ field }}
+      <label>{{ field.label_tag }}</label>
+    </div>
+      {% endfor %}
+    <input  type="submit" name="Update EDUCATION">
+
+  </form>
+</div>
+
+    </div>
+<script>
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else {
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className =
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+<script>
+        function fun()
+        {
+            var a = document.getElementById('hid');
+            var b = document.getElementById('con');
+            a.style.display="block";
+            b.style.filter="blur(10px)";
+
+
+
+        }
+        function fun1()
+        {
+            var a = document.getElementById('hid1');
+            var b = document.getElementById('con');
+            a.style.display="block";
+            b.style.filter="blur(10px)";
+
+
+
+        }
+        function fun2()
+        {
+            var a = document.getElementById('hid2');
+            var b = document.getElementById('con');
+            a.style.display="block";
+            b.style.filter="blur(10px)";
+
+
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>
