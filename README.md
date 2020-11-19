@@ -2,6 +2,7 @@
 JOB FINDING WEBSITE WITH SOCIAL MEDIA
 
 Job Recruitment Website integrated with Social-networking to help the perfect candidates end up with their perfect employers.
+Here user can give tests and update their skills, find friends, post job opening and blogs  and update their details
 ***
 Libraries Used
 ---
